@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark">
+  <meta name="theme-color" content="#0e0e0c">
+  <meta name="description" content="Φωτογραφίες τοπίου του Konstantinos Lianos, με βάση το Kleinarl, στο Salzburg της Αυστρίας.">
+  <title>Konstantinos Lianos — Φωτογραφία τοπίου</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Crect width='16' height='16' fill='%230e0e0c'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="css/site.css">
+</head>
+<body>
+  <a class="skip" href="#syllogi">Μετάβαση στη συλλογή</a>
+
+  <header class="site-header" id="top">
+    <div class="wrap header-inner">
+      <h1 class="wordmark"><a href="#top">Konstantinos Lianos</a></h1>
+      <nav class="nav" aria-label="Κύρια πλοήγηση">
+        <a href="#syllogi">Συλλογή</a>
+        <a href="#sxetika">Σχετικά</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero wrap" aria-label="Εισαγωγή">
+      <!-- hero photo-04.jpg, also shown in the gallery -->
+      <div class="hero-column">
+        <div class="hero-frame">
+          <img
+            id="hero-photo"
+            src="photos/photo-04.jpg"
+            alt="Ορεινή κοιλάδα με λίμνη, ξύλινο κτίριο και δασωμένη πλαγιά"
+            width="2400"
+            height="1600"
+            loading="eager"
+            fetchpriority="high"
+            decoding="async">
+        </div>
+        <p class="hero-note">Φωτογραφία τοπίου · Kleinarl, Salzburg</p>
+      </div>
+    </section>
+
+    <section class="gallery-section wrap" id="syllogi" aria-labelledby="gallery-heading">
+      <h2 id="gallery-heading">Συλλογή</h2>
+      <div id="gallery" class="gallery"></div>
+      <noscript>
+        <p class="notice">Για τη συλλογή χρειάζεται JavaScript.</p>
+      </noscript>
+    </section>
+
+    <section class="about wrap" id="sxetika" aria-labelledby="about-heading">
+      <h2 id="about-heading">Σχετικά</h2>
+      <p>Ο Konstantinos (Ntinos) Lianos είναι φωτογράφος τοπίου, με βάση το Kleinarl, στο Salzburg της Αυστρίας.</p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>Konstantinos Lianos · Kleinarl</p>
+    </div>
+  </footer>
+
+  <dialog id="viewer" aria-labelledby="viewer-count" aria-describedby="viewer-caption" tabindex="-1">
+    <div class="viewer-top">
+      <p class="viewer-status" aria-live="polite">
+        <span id="viewer-count" class="viewer-count"></span>
+        <span id="viewer-caption" class="viewer-caption"></span>
+      </p>
+      <button type="button" id="viewer-close">Κλείσιμο</button>
+    </div>
+    <div class="viewer-stage">
+      <img id="viewer-img" alt="" width="2400" height="1600">
+    </div>
+    <div class="viewer-controls">
+      <button type="button" id="viewer-prev">Προηγούμενη</button>
+      <button type="button" id="viewer-next">Επόμενη</button>
+    </div>
+  </dialog>
+
+  <script src="js/photos.js"></script>
+  <script src="js/site.js"></script>
+</body>
+</html>
