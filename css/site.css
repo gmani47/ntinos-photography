@@ -1,0 +1,315 @@
+/* Dark, image-first portfolio. System fonts only. No photo filters. */
+
+:root {
+  color-scheme: dark;
+  --bg: #0e0e0c;
+  --text: #f0ece4;
+  --muted: #c9c3b8;
+  --warm: #c6a27a;
+  --cyan: #8fd0cb;
+  --line: rgba(240, 236, 228, 0.16);
+  --serif: "Iowan Old Style", Palatino, "Palatino Linotype", "Liberation Serif", "Noto Serif", Georgia, "Times New Roman", serif;
+  --sans: system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans", "Liberation Sans", sans-serif;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--sans);
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+img {
+  max-width: 100%;
+  border: 0;
+}
+
+a,
+button {
+  -webkit-tap-highlight-color: rgba(198, 162, 122, 0.28);
+}
+
+:focus {
+  outline: none;
+}
+
+:focus-visible {
+  outline: 2px solid var(--cyan);
+  outline-offset: 3px;
+}
+
+.skip {
+  position: absolute;
+  left: 1rem;
+  top: -4rem;
+  z-index: 30;
+  padding: 0.5rem 0.75rem;
+  background: var(--bg);
+  color: var(--text);
+}
+
+.skip:focus {
+  top: 0.75rem;
+}
+
+.wrap {
+  width: min(72rem, 100%);
+  margin-inline: auto;
+  padding-inline: 1rem;
+}
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: var(--bg);
+  border-bottom: 1px solid var(--line);
+}
+
+.header-inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.5rem 1.5rem;
+  padding-block: 0.85rem;
+}
+
+.wordmark {
+  margin: 0;
+  font-family: var(--serif);
+  font-size: 1.25rem;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+}
+
+.wordmark a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.nav {
+  display: flex;
+  gap: 1.25rem;
+}
+
+.nav a {
+  color: var(--muted);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+}
+
+.nav a:hover {
+  color: var(--text);
+  border-bottom-color: var(--warm);
+}
+
+.hero {
+  padding-block: 1.25rem 2.5rem;
+}
+
+/* Full 3:2 frame, as large as the first screen allows, never cropped.
+   photo-04.jpg is 2400×1600. */
+.hero-column {
+  width: min(100%, calc((100svh - 10.5rem) * 1.5));
+  margin-inline: auto;
+}
+
+.hero-frame img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 3 / 2;
+  object-fit: contain;
+  background: var(--bg);
+}
+
+.hero-note {
+  margin: 0.85rem 0 0;
+  color: var(--warm);
+  font-size: 0.95rem;
+}
+
+.gallery-section {
+  padding-bottom: 3.5rem;
+  scroll-margin-top: 5.5rem;
+}
+
+.about {
+  padding-bottom: 4.5rem;
+  scroll-margin-top: 5.5rem;
+}
+
+h2 {
+  margin: 0 0 1rem;
+  font-family: var(--serif);
+  font-size: 1.45rem;
+  font-weight: 500;
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: clamp(1.25rem, 3vw, 2.25rem);
+}
+
+.frame {
+  display: block;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  cursor: zoom-in;
+}
+
+.frame img {
+  display: block;
+  width: 100%;
+  height: auto;
+  background: #161614;
+}
+
+.frame:hover img {
+  outline: 1px solid rgba(198, 162, 122, 0.75);
+  outline-offset: 3px;
+}
+
+.about p {
+  max-width: 38rem;
+  margin: 0;
+  font-size: 1.125rem;
+  line-height: 1.6;
+}
+
+.notice {
+  margin: 0;
+  color: var(--muted);
+}
+
+.site-footer {
+  border-top: 1px solid var(--line);
+}
+
+.site-footer p {
+  margin: 0;
+  padding-block: 1.25rem 2rem;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+#viewer[open] {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100dvh;
+  max-width: 100vw;
+  max-height: 100dvh;
+  margin: 0;
+  padding: 0.85rem 1rem 1rem;
+  border: 0;
+  background: var(--bg);
+  color: var(--text);
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  overflow: hidden;
+}
+
+#viewer::backdrop {
+  background: #070706;
+}
+
+.viewer-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.viewer-status {
+  margin: 0;
+  min-width: 0;
+}
+
+.viewer-count {
+  display: block;
+  color: var(--warm);
+  font-size: 0.92rem;
+}
+
+.viewer-caption {
+  display: block;
+  max-width: 46rem;
+  color: var(--text);
+  font-size: 0.98rem;
+}
+
+.viewer-stage {
+  flex: 1 1 auto;
+  min-height: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#viewer-img {
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  background: transparent;
+}
+
+.viewer-controls {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.6rem;
+}
+
+.viewer-controls button,
+#viewer-close {
+  min-height: 44px;
+  padding: 0.4rem 0.9rem;
+  border: 1px solid var(--line);
+  background: transparent;
+  color: var(--text);
+  font: inherit;
+  cursor: pointer;
+}
+
+.viewer-controls button:hover,
+#viewer-close:hover {
+  border-color: var(--warm);
+}
+
+@media (max-width: 380px) {
+  .wordmark {
+    font-size: 1.1rem;
+  }
+
+  .nav {
+    gap: 0.9rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
